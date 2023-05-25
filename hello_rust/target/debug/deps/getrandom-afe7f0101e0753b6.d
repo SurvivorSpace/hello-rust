@@ -1,0 +1,11 @@
+D:\code\workspace\Rust\hello_rust\target\debug\deps\getrandom-afe7f0101e0753b6.rmeta: D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\lib.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\error.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\util.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\error_impls.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\windows.rs
+
+D:\code\workspace\Rust\hello_rust\target\debug\deps\libgetrandom-afe7f0101e0753b6.rlib: D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\lib.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\error.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\util.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\error_impls.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\windows.rs
+
+D:\code\workspace\Rust\hello_rust\target\debug\deps\getrandom-afe7f0101e0753b6.d: D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\lib.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\error.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\util.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\error_impls.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\windows.rs
+
+D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\lib.rs:
+D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\error.rs:
+D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\util.rs:
+D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\error_impls.rs:
+D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\getrandom-0.2.9\src\windows.rs:

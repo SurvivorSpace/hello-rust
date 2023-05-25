@@ -1,0 +1,9 @@
+D:\code\workspace\Rust\hello_rust\target\debug\build\clang-sys-184580b0f41d436b\build_script_build-184580b0f41d436b.exe: D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\clang-sys-1.6.1\build.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\clang-sys-1.6.1\build\macros.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\clang-sys-1.6.1\build\common.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\clang-sys-1.6.1\build\dynamic.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\clang-sys-1.6.1\build\static.rs
+
+D:\code\workspace\Rust\hello_rust\target\debug\build\clang-sys-184580b0f41d436b\build_script_build-184580b0f41d436b.d: D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\clang-sys-1.6.1\build.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\clang-sys-1.6.1\build\macros.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\clang-sys-1.6.1\build\common.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\clang-sys-1.6.1\build\dynamic.rs D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\clang-sys-1.6.1\build\static.rs
+
+D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\clang-sys-1.6.1\build.rs:
+D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\clang-sys-1.6.1\build\macros.rs:
+D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\clang-sys-1.6.1\build\common.rs:
+D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\clang-sys-1.6.1\build\dynamic.rs:
+D:\Language\Rust\.cargo\registry\src\mirrors.ustc.edu.cn-61ef6e0cd06fb9b8\clang-sys-1.6.1\build\static.rs:

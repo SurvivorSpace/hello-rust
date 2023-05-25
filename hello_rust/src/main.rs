@@ -1,119 +1,142 @@
 use std::fs::File;
-use std::io;
 use std::io::Read;
+use mysql::{Pool, PooledConn};
+use serde_derive::Deserialize;
 
-fn main(){
-    match  read_username_from_file(){
-        Ok(username) => println!("读取成功：username={username}"),
-        Err(error)=> panic!("读取失败!：{error}")
+/// 数据库配置
+/// 当属性作用于整个 crate 时，它们的语法为 #![derive]，当它们用于模块或项时，语法为 #[derive]（注意少了感叹号 !）
+/// Deserialize  反序列化
+/// Default： 创建数据类型的一个空实例
+/// Debug：使用 {:?} formatter 来格式化一个值
+///
+///
+#[allow(dead_code)]
+#[derive(Deserialize)]
+#[derive(Debug)]
+pub struct Database {
+    host: String,
+    port: usize,
+    username: String,
+    password: String,
+    name: String,
+}
+
+#[allow(dead_code)]
+#[derive(Deserialize)]
+#[derive(Debug)]
+pub struct Application {
+    port: usize,
+}
+
+#[allow(dead_code)]
+#[derive(Deserialize)]
+#[derive(Debug)]
+pub struct Setup {
+    kick: bool,
+}
+
+
+#[allow(dead_code)]
+#[derive(Deserialize)]
+#[derive(Debug)]
+pub struct Config {
+    database: Database,
+    application: Application,
+    setup: Setup,
+}
+
+#[allow(dead_code)]
+#[derive(Debug)]
+pub struct User {
+    id: u32,
+    login_id: String,
+    name: String,
+    phone: String,
+}
+
+
+fn open_file(file_name: &str) -> File {
+    match File::open(&file_name) {
+        Ok(file) => file,
+        Err(error) => panic!("打开文件错误 {} exception:{}", file_name, error)
     }
 }
 
-fn read_username_from_file() -> Result<String, io::Error>{
-    let mut username = String::new();
-    File::open("hello.txt")?.read_to_string(& mut username)?;
-    Ok(username)
+
+fn connection_mysql(db: &Database) -> PooledConn {
+    let url = format!("mysql://{}:{}@{}:{}/{}", &db.username, &db.password, &db.host, &db.port, &db.name);
+    println!("数据库连接url:{}", url);
+    //创建数据库连接池
+    let pool = Pool::new(&url).unwrap();
+    match pool.get_conn() {
+        Ok(connection) => connection,
+        Err(e) => panic!("获取数据库链接错误:{e}")
+    }
 }
 
 
-// use std::fs::File;
-// use std::io;
-// use std::io::Read;
-//
-// fn main(){
-//     let username_result = read_username_from_file();
-//     match username_result {
-//         Ok(username) => println!("read file success.username={}",username),
-//         Err(error) =>{
-//            println!("读取文件失败:{}",error)
-//         }
-//     }
-//
-//     println!("程序继续执行......")
-// }
-//
-//
-// fn read_username_from_file() -> Result<String, io::Error>{
-//     let mut username_file_result = File::open("hello")?;
-//     let mut username = String::new();
-//     username_file_result.read_to_string(&mut username)?;
-//     Ok(username)
-// }
+fn main() {
+    let config_file_name = "config.toml";
+
+    let mut file = open_file(&config_file_name);
+
+    let mut str_val = String::new();
+
+    match file.read_to_string(&mut str_val) {
+        Ok(str) => str,
+        Err(error) => panic!("读取文件失败：{error}")
+    };
+
+    let config: Config = toml::from_str(&str_val).unwrap();
+    println!("config:{:?}", config);
+
+    let database_config = config.database;
+    let application_config = config.application;
+    let setup_config = config.setup;
+
+    println!("数据库配置：{:?}", database_config);
+    println!("应用配置：{:?}", application_config);
+    println!("设置配置：{:?}", setup_config);
+
+    let mut connection = connection_mysql(&database_config);
+    println!("数据库链接：{:?}", connection);
+
+    let sql = "SELECT * FROM user";
+
+    let data = connection.query(sql);
+    let query_data = match data {
+        Ok(d) => d,
+        Err(e) => panic!("查询数据失败！{e}")
+    };
+
+    println!("数据：{:?}", query_data);
+    let mut user_vector: Vec<User> = Vec::new();
+
+    for row_result in query_data {
+        match row_result {
+            Ok(row) => {
+                let user = User{
+                    id: row.get("ID").unwrap(),
+                    login_id: row.get("LOGINID").unwrap(),
+                    name: row.get("NAME").unwrap(),
+                    phone: row.get("PHONE").unwrap(),
+                };
+
+                user_vector.push(user);
+            }
+            Err(e) => panic!("查询数据失败：{e}")
+        }
+    }
+
+
+
+    println!("用户集合{:?}", user_vector);
+
+    println!("集合长度:{}",user_vector.len());
+}
 
 
 
 
-// #![allow(unused)]
-// fn main() {
-//     use std::fs::File;
-//     use std::io::{self, Read};
-//
-//     fn read_username_from_file() -> Result<String, io::Error> {
-//         let username_file_result = File::open("hello.txt");
-//
-//         let mut username_file = match username_file_result {
-//             Ok(file) => file,
-//             Err(e) => return Err(e),
-//         };
-//
-//         let mut username = String::new();
-//
-//         match username_file.read_to_string(&mut username) {
-//             Ok(_) => Ok(username),
-//             Err(e) => Err(e),
-//         }
-//     }
-// }
 
 
-
-// fn main(){
-//     // let file_result = File::open("hello.txt").unwrap();
-//     // println!("{:?}",file_result);
-//
-//     let file_result = File::open("hello.txt").expect("项目中没有找到指定文件");
-//     println!("{:?}",file_result);
-//
-//
-// }
-// fn main() {
-//     let file_result = File::open("hello.txt");
-//
-//     match file_result {
-//         Ok(file) => {
-//             println!("打开文件成功");
-//             file
-//         },
-//         Err(error) => match error.kind() {
-//             ErrorKind::NotFound => match File::create("hello.txt") {
-//                 Ok(fc) => {
-//                     println!("创建文件");
-//                     fc
-//                 },
-//                 Err(e) => panic!("文件创建失败：{:?}", e)
-//             },
-//             other_error => {
-//                 panic!("打开文件失败：{:?}", other_error)
-//             }
-//         }
-//     };
-// }
-
-
-// fn main() {
-//     let file_result = File::open("hello.txt");
-//
-//     let file = match file_result {
-//         Ok(file) => file,
-//         Err(error) => panic!("打开文件失败：{:?}", error),
-//     };
-//
-//     println!("{:?}",file);
-// }
-
-
-// fn main() {
-//
-//     panic!("程序出错！");
-//
-// }

@@ -1,0 +1,13 @@
+[application]
+port = 8080
+
+[database]
+host = "10.0.202.154"
+port = 3306
+username = "root"
+password = "mysql"
+name = "cloud"
+
+
+[setup]
+kick = true
